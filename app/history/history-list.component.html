@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">{{getTitle()}}</div>
-	<div class="panel-body" *ngIf="history && history.length">
+	<div class="panel-body" *ngIf="history">
 		<div class="row">
 			<div class="col-md-6">
 				<form action="" class="form-inline">
@@ -23,18 +23,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr *ngFor='#data of history'>
-						<td>{{data.date}}</td>
-						<td>{{data.icon}}</td>
-						<td>{{data.precipIntensity}}</td>
-						<td>{{data.temperature}}</td>
-						<td>{{data.windSpeed}}</td>
+					<tr >
+						<td>{{history.time * 1000 | date:'mediumDate' || "No Data"}}</td>
+						<td>{{history.summary || "No Data"}}</td>
+						<td>{{history.precipType || "No Data"}}</td>
+						<td>{{history.temperatureMax ? history.temperatureMax + "&deg; F" : "No Data"}}</td>
+						<td>{{history.temperatureMin ? history.temperatureMin + "&deg; F" : "No Data"}}</td>
+						<td>{{history.windSpeed ? history.windSpeed + " mph" : "No Data"}}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-	<div class="panel-body" *ngIf="!(history && history.length)">
+	<div class="panel-body" *ngIf="!(history)">
 		<div class="row">
 			<div class="col-md-6">No weather data for this location</div>
 		</div>
