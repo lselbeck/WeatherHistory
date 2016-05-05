@@ -1,32 +1,42 @@
-<div class="panel lanel-primary">
-	<div class="panel heading">
-		Weather History
-	</div>
-	<div class="panel-body">
+<div class="panel panel-primary">
+	<div class="panel-heading">{{getTitle()}}</div>
+	<div class="panel-body" *ngIf="history && history.length">
 		<div class="row">
-			<form action="" class="form-inline">
-				<label for="history-sort">Select list:</label>
-				<div class="form-group">
-					<select class="form-control" id="history-sort">
-						<option>Date</option>
-						<option>Temp</option>
-						<option>Conditions</option>
-					</select>
-				</div>
-			</form>
+			<div class="col-md-6">
+				<form action="" class="form-inline">
+					<label for="history-sort">Sort by:</label>
+					<div class="form-group">
+						<select class="form-control" id="history-sort">
+							<option>Date</option>
+							<option>Temp</option>
+							<option>Conditions</option>
+						</select>
+					</div>
+				</form>
+			</div>
 		</div>
 		<div class="table-responsive">
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Date</th>
-						<th>Temp</th>
-						<th>Attr</th>
-						<th>Attr</th>
+						<td *ngFor="#title of columns">{{title}}</td>
 					</tr>
 				</thead>
-				<tbody></tbody>
+				<tbody>
+					<tr *ngFor='#data of history'>
+						<td>{{data.date}}</td>
+						<td>{{data.icon}}</td>
+						<td>{{data.precipIntensity}}</td>
+						<td>{{data.temperature}}</td>
+						<td>{{data.windSpeed}}</td>
+					</tr>
+				</tbody>
 			</table>
+		</div>
+	</div>
+	<div class="panel-body" *ngIf="!(history && history.length)">
+		<div class="row">
+			<div class="col-md-6">No weather data for this location</div>
 		</div>
 	</div>
 </div>
