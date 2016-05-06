@@ -26,14 +26,22 @@
 	<script>
 		System.config({
 			packages: {
-				app: {
+				"app": {
 					format: 'register',
 					defaultExtension: 'js'
+				},
+				"angular2-highcharts": {
+					main: 'index',
+					format: 'cjs',
+					defaultExtension: 'js',
 				}
+			},
+			map: {
+				'angular2-highcharts': 'https://cdn.rawgit.com/gevgeny/angular2-highcharts/master/dist',
+				'highcharts/highstock.src': 'https://cdn.rawgit.com/highcharts/highcharts-dist/v4.2.1/highstock.js'
 			}
 		});
-		System.import('app/main')
-				.then(null, console.error.bind(console));
+		System.import('app/main').then(null, console.error.bind(console));
 	</script>
 </head>
 

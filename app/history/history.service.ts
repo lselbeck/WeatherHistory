@@ -31,8 +31,8 @@ export class HistoryService {
 	// 	return historyArray;
 	// }
 
-	getHistory(latitude: number, longitude: number): Observable<any> {
-		var url = this._historyUrl + latitude + "," + longitude + ",2013-05-06T12:00:00?callback=JSONP_CALLBACK";
+	getHistory(latitude: number, longitude: number, date: Date): Observable<any> {
+		var url = this._historyUrl + latitude + "," + longitude + "," + date.toJSON().slice(0, 10) + "T12:00:00?callback=JSONP_CALLBACK";
 		return this._jsonp.get(url)
 			.map((response: Response) => <any>response.json())
 			.do(data => console.log('All: ' + JSON.stringify(data)))

@@ -1,6 +1,9 @@
+<chart [options]="options"
+(mousemove touchmove touchstart)="onChartMove($event)"></chart>
+
 <div class="panel panel-primary">
 	<div class="panel-heading">{{getTitle()}}</div>
-	<div class="panel-body" *ngIf="history">
+	<div class="panel-body" *ngIf="history && history.length">
 		<div class="row">
 			<div class="col-md-6">
 				<form action="" class="form-inline">
@@ -23,19 +26,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr >
-						<td>{{history.time * 1000 | date:'mediumDate' || "No Data"}}</td>
-						<td>{{history.summary || "No Data"}}</td>
-						<td>{{history.precipType || "No Data"}}</td>
-						<td>{{history.temperatureMax ? history.temperatureMax + "&deg; F" : "No Data"}}</td>
-						<td>{{history.temperatureMin ? history.temperatureMin + "&deg; F" : "No Data"}}</td>
-						<td>{{history.windSpeed ? history.windSpeed + " mph" : "No Data"}}</td>
+					<tr *ngFor="#day of history">
+						<td>{{day.time * 1000 | date:'mediumDate' || "No Data"}}</td>
+						<td>{{day.summary || "No Data"}}</td>
+						<td>{{day.precipType ? day.precipType : "None"}}</td>
+						<td>{{day.temperatureMax ? day.temperatureMax + "&deg; F" : "No Data"}}</td>
+						<td>{{day.temperatureMin ? day.temperatureMin + "&deg; F" : "No Data"}}</td>
+						<td>{{day.windSpeed ? day.windSpeed + " mph" : "No Data"}}</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-	<div class="panel-body" *ngIf="!(history)">
+	<div class="panel-body" *ngIf="!(history && history.length)">
 		<div class="row">
 			<div class="col-md-6">No weather data for this location</div>
 		</div>
