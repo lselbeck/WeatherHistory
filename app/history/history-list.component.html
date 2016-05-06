@@ -1,5 +1,4 @@
-<chart [options]="options"
-(mousemove touchmove touchstart)="onChartMove($event)"></chart>
+<chart [options]="options" (load)="saveInstance($event.context)"></chart>
 
 <div class="panel panel-primary">
 	<div class="panel-heading">{{getTitle()}}</div>
