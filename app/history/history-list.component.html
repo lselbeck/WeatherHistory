@@ -1,7 +1,13 @@
-<chart [options]="options" (load)="saveInstance($event.context)"></chart>
+<chart id="wh-chart" [options]="options" (load)="saveInstance($event.context)"></chart>
 
-<div class="panel panel-primary">
-	<div class="panel-heading">{{getTitle()}}</div>
+<select class="btn btn-primary dropdown-toggle" id="time-period-select" (change)="onTimeChange($event.target.value)">
+	<option *ngFor="#time of timeOptions">{{time}}</option>
+</select>
+
+<button class="btn btn-primary" id="table-toggle-btn" (click)="toggleTable()">{{showTable ? 'Hide' : 'Show'}} Table</button>
+
+<div class="panel panel-primary" *ngIf="showTable">
+	<div class="panel-heading">History from {{latitude >= 0 ? '+' : ''}}{{latitude | number}}{{longitude >= 0 ? ', +' : ', '}}{{longitude | number}}</div>
 	<div class="panel-body" *ngIf="history && history.length">
 		<div class="row">
 			<div class="col-md-6">

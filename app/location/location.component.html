@@ -1,0 +1,14 @@
+<sebm-google-map
+	[latitude]="initLatitude"
+	[longitude]="initLongitude"
+	[disableDefaultUI]="false"
+	(mapClick)="mapClicked($event)"
+>
+	
+	<sebm-google-map-marker
+		[latitude]="latitude"
+		[longitude]="longitude"
+	>
+	
+	</sebm-google-map-marker>
+</sebm-google-map>

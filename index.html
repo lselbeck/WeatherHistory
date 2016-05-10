@@ -22,6 +22,9 @@
 	<!-- For http -->
 	<script src="node_modules/angular2/bundles/http.dev.js"></script>
 
+	<!-- For maps api -->
+	<script src="node_modules/angular2-google-maps/bundles/angular2-google-maps.js"></script>
+
 	<!-- 2. Configure SystemJS -->
 	<script>
 		System.config({
@@ -34,11 +37,17 @@
 					main: 'index',
 					format: 'cjs',
 					defaultExtension: 'js',
+				},
+				"angular2-google-maps": {
+					defaultExtension: 'js'
 				}
 			},
 			map: {
 				'angular2-highcharts': 'https://cdn.rawgit.com/gevgeny/angular2-highcharts/master/dist',
 				'highcharts/highstock.src': 'https://cdn.rawgit.com/highcharts/highcharts-dist/v4.2.1/highstock.js'
+			},
+			typescriptOptions: {
+				emitDecoratorMetadata: true,
 			}
 		});
 		System.import('app/main').then(null, console.error.bind(console));
