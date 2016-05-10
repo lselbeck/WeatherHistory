@@ -3,4 +3,8 @@ typings
 **/app/**/*.map
 node_modules
 jspm_packages
-bower_components
+bower_components
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
