@@ -17,7 +17,7 @@ export class HistoryListComponent implements OnChanges {
 	initLongitude: number = -122.23;
 	@Input() latitude: number = this.initLatitude;
 	@Input() longitude: number = this.initLongitude;
-	historyLength: number = 365; //how many days back the chart goes
+	historyLength: number = 30; //how many days back the chart goes
 	tickAmount: number = 40; //how many data points there are in the chart
 
 	//table data
