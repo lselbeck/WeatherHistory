@@ -1,6 +1,9 @@
 {
   "name": "weather-history",
   "version": "1.0.0",
+  "engines": {
+    "node": "4.4.3"
+  },
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "tsc": "tsc",
