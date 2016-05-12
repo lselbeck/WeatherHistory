@@ -201,5 +201,7 @@ export class HistoryListComponent implements OnChanges {
 		}
 
 		this.getHistory();
+
+		console.log(newTime);
 	}
 }
