@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component, Directive } from 'angular2/core';
 import { JSONP_PROVIDERS } from 'angular2/http';
 import { ROUTER_PROVIDERS, RouteConfig } from 'angular2/router';
 import 'rxjs/Rx';
