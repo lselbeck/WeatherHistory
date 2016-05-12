@@ -11,7 +11,6 @@ export class HistoryService {
 		var url = this._historyUrl + latitude + "," + longitude + "," + date.toJSON().slice(0, 10) + "T12:00:00?callback=JSONP_CALLBACK";
 		return this._jsonp.get(url)
 			.map((response: Response) => <any>response.json())
-			.do(data => console.log('All: ' + JSON.stringify(data)))
 			.catch(this.handleError);
 	}
 
