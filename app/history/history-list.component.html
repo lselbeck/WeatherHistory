@@ -1,7 +1,7 @@
 <chart id="wh-chart" [options]="options" (load)="saveInstance($event.context)"></chart>
 
 <select class="btn btn-primary dropdown-toggle" id="time-period-select" (change)="onTimeChange($event.target.value)">
-	<option *ngFor="#time of timeOptions">{{time}}</option>
+	<option *ngFor="let time of timeOptions">{{time}}</option>
 </select>
 
 <button class="btn btn-primary" id="table-toggle-btn" (click)="toggleTable()">{{showTable ? 'Hide' : 'Show'}} Table</button>
@@ -27,11 +27,11 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<td *ngFor="#title of columns">{{title}}</td>
+						<td *ngFor="let title of columns">{{title}}</td>
 					</tr>
 				</thead>
 				<tbody>
-					<tr *ngFor="#day of history">
+					<tr *ngFor="let day of history">
 						<td>{{day.time * 1000 | date:'mediumDate' || "No Data"}}</td>
 						<td>{{day.summary || "No Data"}}</td>
 						<td>{{day.precipType ? day.precipType : "None"}}</td>

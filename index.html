@@ -30,32 +30,8 @@
 	<script src="node_modules/angular2/bundles/router.dev.js"></script>
 
 	<!-- 2. Configure SystemJS -->
-	<script>
-		System.config({
-			packages: {
-				"app": {
-					format: 'register',
-					defaultExtension: 'js'
-				},
-				"angular2-highcharts": {
-					main: 'index',
-					format: 'cjs',
-					defaultExtension: 'js',
-				},
-				"angular2-google-maps": {
-					defaultExtension: 'js'
-				}
-			},
-			map: {
-				'angular2-highcharts': 'https://cdn.rawgit.com/gevgeny/angular2-highcharts/master/dist',
-				'highcharts/highstock.src': 'https://cdn.rawgit.com/highcharts/highcharts-dist/v4.2.1/highstock.js'
-			},
-			typescriptOptions: {
-				emitDecoratorMetadata: true,
-			}
-		});
-		System.import('app/main').then(null, console.error.bind(console));
-	</script>
+	<script src="systemjs.config.js"></script>
+	<script>System.import('app/main').then(null, console.error.bind(console));</script>
 </head>
 
 <body>
