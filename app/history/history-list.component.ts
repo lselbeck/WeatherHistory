@@ -19,6 +19,7 @@ export class HistoryListComponent implements OnChanges {
 	@Input() longitude: number = this.initLongitude;
 	historyLength: number = 30; //how many days back the chart goes
 	tickAmount: number = 40; //how many data points there are in the chart
+	chartCreated: boolean = false;
 
 	//table data
 	history: Array<any> = new Array<any>();
@@ -123,12 +124,18 @@ export class HistoryListComponent implements OnChanges {
 	//captures chart instance when it is initially created and creates initial chart
 	saveInstance(chartInstance) {
 		this.chart = chartInstance;
+		this.chartCreated = true;
 		this.getHistory();
 	}
 
 	//redraw chart when new location is selected
 	ngOnChanges(): void {
-		this.getHistory();
+		if (this.chartCreated) {
+			this.getHistory();
+		} else {
+			this.latitude = this.initLatitude;
+			this.longitude = this.initLongitude;
+		}
 	}
 
 	//calls dark ski api to get weather history for a given location, and redraws the chart
