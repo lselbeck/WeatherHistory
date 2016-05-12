@@ -1,4 +1,4 @@
-import { Component, Directive, OnChanges, Input } from 'angular2/core';
+import { Component, OnChanges, Input } from 'angular2/core';
 import { HistoryService } from './history.service';
 import { CHART_DIRECTIVES, Highcharts } from 'angular2-highcharts';
 
@@ -201,7 +201,5 @@ export class HistoryListComponent implements OnChanges {
 		}
 
 		this.getHistory();
-
-		console.log(newTime);
 	}
 }
