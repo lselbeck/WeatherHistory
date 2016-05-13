@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from 'angular2/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import {	ANGULAR2_GOOGLE_MAPS_DIRECTIVES, MouseEvent } from 'angular2-google-maps/core';
 
 @Component({

@@ -7,7 +7,8 @@
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     '@angular':                   'node_modules/@angular',
     'angular2-highcharts':        'https://cdn.rawgit.com/gevgeny/angular2-highcharts/master/dist',
-    'highcharts/highstock.src':   'https://cdn.rawgit.com/highcharts/highcharts-dist/v4.2.1/highstock.js'
+    'highcharts/highstock.src':   'https://cdn.rawgit.com/highcharts/highcharts-dist/v4.2.1/highstock.js',
+    'angular2':                   'node_modules/@angular'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension

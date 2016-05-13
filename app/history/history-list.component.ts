@@ -1,4 +1,4 @@
-import { Component, Directive, OnChanges, Input } from 'angular2/core';
+import { Component, Directive, OnChanges, Input } from '@angular/core';
 import { HistoryService } from './history.service';
 import { CHART_DIRECTIVES, Highcharts } from 'angular2-highcharts';
 

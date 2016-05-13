@@ -1,5 +1,5 @@
-import { Injectable } from 'angular2/core';
-import { Jsonp, Response } from 'angular2/http'
+import { Injectable } from '@angular/core';
+import { Jsonp, Response } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
 @Injectable()
